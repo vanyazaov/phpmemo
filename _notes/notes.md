@@ -25,7 +25,7 @@ permalink: /notes/
                     </div>
                     <div class="note-actions">
                         <button class="btn btn-secondary hide-answer">Скрыть</button>
-                        <a href="{{ note.url }}" class="btn btn-primary">Подробнее</a>
+                        <a href="{{ note.url | relative_url }}" class="btn btn-primary">Подробнее</a>
                     </div>
                 </div>
             </div>
