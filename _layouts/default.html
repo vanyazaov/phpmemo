@@ -2,16 +2,17 @@
 <html lang="ru">
 <head>
     {% include head.html %}
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 </head>
 <body>
     {% include header.html %}
-
-    <main class="page-content" aria-label="Content">
-        <div class="wrapper">
-            {{ content }} <!-- Сюда подставится содержимое страницы -->
-        </div>
+    
+    <main class="main-content">
+        {{ content }}
     </main>
-
+    
     {% include footer.html %}
+    
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>
 </html>

@@ -12,5 +12,7 @@ collections:
     permalink: /notes/:path/   # Вот это ключевая строка! # Опционально: настраивает URL для страниц записей
 plugins:
   - jekyll-feed
-
-
+  - jekyll-seo-tag
+  
+# Enable excerpt
+excerpt_separator: "<!--more-->"

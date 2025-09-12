@@ -1,8 +1,7 @@
 ---
-layout: default
 title: "Комментарии в PHP"
-date: 2024-05-20
-category: PHP Basics
+date: 2024-01-15
+categories: ["PHP Basics"]
 ---
 
 ## Однострочные комментарии

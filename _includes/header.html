@@ -1,9 +1,16 @@
 <header class="site-header">
-    <div class="wrapper">
-        <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+    <div class="container">
+        <a href="{{ '/' | relative_url }}" class="site-title">
+            <span class="logo">📝</span>
+            PHP Memo
+        </a>
+        
         <nav class="site-nav">
             {% for item in site.data.navigation %}
-                <a class="page-link" href="{{ item.link | relative_url }}">{{ item.name }}</a>
+            <a href="{{ item.link | relative_url }}" 
+               class="nav-link {% if page.url == item.link %}active{% endif %}">
+                {{ item.name }}
+            </a>
             {% endfor %}
         </nav>
     </div>
