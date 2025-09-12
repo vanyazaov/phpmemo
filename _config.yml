@@ -5,6 +5,11 @@ url: ""     # Ваш домен, например "https://username.github.io"
 
 # Настройки для Jekyll
 theme: minima # Можно начать с минимальной темы, а потом кастомизировать
+# Объявляем кастомные коллекции
+collections:
+  notes:
+    output: true   # Важно: это разрешает Jekyll создавать отдельные страницы для каждого файла в коллекции
+    permalink: /:collection/:name # Опционально: настраивает URL для страниц записей
 plugins:
   - jekyll-feed
 
