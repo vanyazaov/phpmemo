@@ -13,10 +13,8 @@
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   
   <!-- Подсветка синтаксиса (Highlight.js) -->
-  <link rel="stylesheet" 
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
   <!-- Подсветка для нужных языков -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/php.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
@@ -24,12 +22,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/css.min.js"></script>
   
   <!-- Инициализация после загрузки страницы -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      hljs.highlightAll();
-    });
-  </script>
-
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        hljs.highlightAll();
+        // Инициализируем номера строк после подсветки
+        hljs.initLineNumbersOnLoad();
+      });
+    </script>
   <!-- Канонический URL для SEO -->
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   

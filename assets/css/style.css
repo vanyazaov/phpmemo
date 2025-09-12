@@ -78,24 +78,13 @@ body {
     text-align: left;
 }
 
-/* Стили для добавления номеров строк */
-.hljs {
-  /* Включаем счетчик для каждого блока <pre> */
-  counter-reset: line;
-}
-
-.hljs .line::before {
-  /* Увеличиваем счетчик для каждой строки */
-  counter-increment: line;
-  /* Выводим номер строки */
-  content: counter(line);
-  /* Стили для номера */
-  display: inline-block;
-  width: 2em; /* Ширина области для номеров */
-  padding-right: 1em;
-  margin-right: 1em;
-  color: #6e7781; /* Цвет номеров (серый) */
-  text-align: right;
-  border-right: 1px solid #d0d7de; /* Вертикальная линия-разделитель */
-  user-select: none; /* Нельзя выделить номера мышкой */
+/* Стили для номеров строк от плагина */
+.hljs-ln-numbers {
+  text-align: center;
+  color: #ccc;
+  border-right: 1px solid #999;
+  vertical-align: top;
+  padding-right: 0.5em;
+  margin-right: 0.5em;
+  user-select: none;
 }
