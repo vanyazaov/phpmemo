@@ -1,7 +1,7 @@
 title: "PHPMemo"
 description: "Шпаргалки и заметки по PHP и веб-разработке"
-baseurl: "" # Если сайт в подпапке, например "/phpmemo"
-url: ""     # Ваш домен, например "https://username.github.io"
+baseurl: "/phpmemo" # Если сайт в подпапке, например "/phpmemo"
+url: "https://vanyazaov.github.io"     # Ваш домен, например "https://username.github.io"
 
 # Настройки для Jekyll
 theme: minima # Можно начать с минимальной темы, а потом кастомизировать
