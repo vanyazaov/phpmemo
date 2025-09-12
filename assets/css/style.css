@@ -88,3 +88,10 @@ body {
   margin-right: 0.5em;
   user-select: none;
 }
+td.hljs-ln-line.hljs-ln-numbers {
+    padding-right: 5px;
+}
+td.hljs-ln-line.hljs-ln-code {
+    padding-left: 5px;
+}
+
