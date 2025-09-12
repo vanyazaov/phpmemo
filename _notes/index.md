@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Все записи"
+permalink: /notes/
 ---
 
 # Все записи
