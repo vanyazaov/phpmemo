@@ -14,7 +14,7 @@ permalink: /notes/
                 <div class="note-card-front">
                     <h3 class="note-title">{{ note.title }}</h3>
                     <div class="note-excerpt">
-                        {{ strip_html | truncatewords: 15 }}
+                        {{ note.excerpt | strip_html | truncatewords: 15 }}
                     </div>
                     <button class="btn btn-secondary show-answer">Показать ответ</button>
                 </div>
