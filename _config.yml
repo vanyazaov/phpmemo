@@ -15,4 +15,4 @@ plugins:
   - jekyll-seo-tag
   
 # Enable excerpt
-# excerpt_separator: "<!--more-->"
+excerpt_separator: "<!--more-->"
