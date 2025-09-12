@@ -13,11 +13,4 @@ collections:
 plugins:
   - jekyll-feed
 
-# Настройка подсветки кода
-highlighter: coderay
-markdown: kramdown
-kramdown:
-  syntax_highlighter: coderay
-  syntax_highlighter_opts:
-    line_numbers: table
-    bold_every: 5
+
