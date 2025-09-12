@@ -14,5 +14,3 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   
-# Enable excerpt
-excerpt_separator: "<!--more-->"
