@@ -1,5 +1,6 @@
 ---
 title: "Комментарии в PHP"
+layout: note
 date: 2024-01-15
 categories: ["PHP Basics"]
 question: "Какие типы комментариев поддерживает PHP?"

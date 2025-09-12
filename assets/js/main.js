@@ -1,4 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Сначала скрываем все back-стороны карточек
+    document.querySelectorAll('.note-card-back').forEach(back => {
+        back.style.display = 'none';
+    });
+    
+    document.querySelectorAll('.note-card-front').forEach(front => {
+        front.style.display = 'block';
+    });
+
     // Обработка карточек
     const noteCards = document.querySelectorAll('.note-card');
     
@@ -29,19 +38,5 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }
-    });
-    
-    // Плавная прокрутка для якорей
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
     });
 });
