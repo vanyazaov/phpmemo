@@ -8,9 +8,6 @@
     {% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | default: "PHP Шпаргалки" | escape }}{% endif %}
   </title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   
   <!-- Подсветка синтаксиса (Highlight.js) -->
     <link rel="stylesheet" 
