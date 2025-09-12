@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% include head.html %}
+</head>
+<body>
+    {% include header.html %}
+
+    <main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            {{ content }} <!-- Сюда подставится содержимое страницы -->
+        </div>
+    </main>
+
+    {% include footer.html %}
+</body>
+</html>
