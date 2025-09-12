@@ -1,0 +1,17 @@
+title: "PHPMemo"
+description: "Шпаргалки и заметки по PHP и веб-разработке"
+baseurl: "" # Если сайт в подпапке, например "/phpmemo"
+url: ""     # Ваш домен, например "https://username.github.io"
+
+# Настройки для Jekyll
+theme: minima # Можно начать с минимальной темы, а потом кастомизировать
+plugins:
+  - jekyll-feed
+
+# Настройка подсветки кода
+highlighter: rouge
+markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight' # Класс для обертки кода
