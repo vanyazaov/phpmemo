@@ -1,6 +1,6 @@
 - name: Главная
   link: /
 - name: Все записи
-  link: /notes
+  link: /notes/
 - name: О проекте
   link: /about

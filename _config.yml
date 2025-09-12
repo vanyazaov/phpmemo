@@ -14,9 +14,10 @@ plugins:
   - jekyll-feed
 
 # Настройка подсветки кода
-highlighter: rouge
+highlighter: coderay
 markdown: kramdown
 kramdown:
-  syntax_highlighter: rouge
+  syntax_highlighter: coderay
   syntax_highlighter_opts:
-    css_class: 'highlight' # Класс для обертки кода
+    line_numbers: table
+    bold_every: 5
