@@ -3,13 +3,13 @@ layout: default
 title: Все карточки
 permalink: /notes/
 ---
-
+{% assign real_notes = site.notes | where_exp: "item", "item.path != '_notes/notes.md'" %}
 <div class="notes-page">
     <div class="container">
         <h1 class="page-title">Все карточки</h1>
         
         <div class="notes-grid">
-            {% for note in site.notes %}
+            {% for note in real_notes %}
             <div class="note-card">
                 <div class="note-card-front">
                     <h3 class="note-title">{{ note.title }}</h3>
