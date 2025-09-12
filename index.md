@@ -9,5 +9,5 @@ title: "Главная - PHPMemo"
 ## Последние записи
 
 {% for note in site.notes limit:5 %}
-* [{{ note.title | relative_url }}]({{ note.url }})
+* [{{ note.title }}]({{ note.url | relative_url }})
 {% endfor %}
