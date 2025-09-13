@@ -11,24 +11,45 @@ permalink: /notes/
         <div class="notes-grid">
             {% for note in site.notes %}
             {% if note.card_id %} <!-- Пропускаем служебные файлы -->
-            <div class="note-preview note-preview-{{ note.card_type }}">
-                <div class="note-preview-meta">
-                    <div class="note-preview-icon">#{{ note.card_id }}</div>
-                    <span class="note-preview-type">{{ note.card_type }}</span>
-                </div>
-                
-                <h3 class="note-preview-title">{{ note.title }}</h3>
-                
-                <div class="note-preview-question">
-                    {{ note.question | markdownify | strip_html | truncatewords: 20 }}
-                </div>
-                
-                <a href="{{ note.url | relative_url }}" class="btn btn-primary">
-                    Открыть карточку
-                </a>
-            </div>
+                {% include note-card.html note=note %}
             {% endif %}
             {% endfor %}
         </div>
     </div>
 </div>
+
+<style>
+/* Сетка карточек */
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .notes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<script>
+// JavaScript для работы карточек на странице "Все записи"
+document.addEventListener('DOMContentLoaded', function() {
+    // Делегирование событий для всех карточек
+    document.querySelector('.notes-grid').addEventListener('click', function(e) {
+        const card = e.target.closest('.note-card');
+        if (!card) return;
+        
+        if (e.target.classList.contains('show-answer')) {
+            card.classList.add('show-answer');
+        }
+        
+        if (e.target.classList.contains('hide-answer')) {
+            card.classList.remove('show-answer');
+        }
+    });
+});
+</script>
