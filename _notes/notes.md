@@ -72,8 +72,8 @@ permalink: /notes/
 
                         <!-- Область вопроса -->
                         <div class="note-question">
-                            <h3>Вопрос:</h3>
-                            {{ "`<?php ... ?>`" | markdownify }}
+                            Теги: {{ "`<?php ... ?>`" | markdownify }}<br>
+                            Расскажите всё, что знаете.
                         </div>
 
                         <!-- Область ответа (изначально скрыта) -->
@@ -92,6 +92,9 @@ permalink: /notes/
                         <!-- Кнопка для показа ответа -->
                         <button class="btn btn-primary show-answer">Показать ответ</button>
                         </div>                  
+                </div>
+                <div class="note-card-back">
+                        
                 </div>
             </div>
         </div>
