@@ -5,7 +5,13 @@ url: "https://vanyazaov.github.io"
 
 # Настройки для Jekyll
 theme: minima
+# Настройка подсветки кода
+highlighter: rouge
 markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight' # Класс для обертки кода
 
 # Объявляем кастомные коллекции
 collections:
