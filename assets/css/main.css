@@ -32,11 +32,21 @@ body {
     text-decoration: none;
     color: #333;
 }
+/* Navigation */
 .site-nav {
     display: flex;
     gap: 2rem;
 }
+.nav-link {
+    text-decoration: none;
+    color: #666;
+    transition: color 0.3s;
+}
 
+.nav-link:hover,
+.nav-link.active {
+    color: #007bff;
+}
 /* Hero section */
 .hero {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
