@@ -13,5 +13,3 @@ collections:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
-  
-version: "{% raw %}{{ site.time | date: '%Y-%m-%d %H:%M' }}{% endraw %}"
