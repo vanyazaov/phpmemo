@@ -17,7 +17,9 @@ permalink: /notes/
                                 <!-- Верхняя панель с мета-информацией -->
                                 <div class="note-meta">
                                     <div class="note-icon note-icon-{{ note.card_type }}">
-   
+                                       {% if note.card_type == "theory" %}📚{% endif %}
+                                       {% if note.card_type == "technique" %}⚡{% endif %}
+                                       {% if note.card_type == "practice" %}🔧{% endif %}
                                      </div>
                                     <div class="note-info">
                                         <span class="note-id">#{{ note.card_id }}</span>
