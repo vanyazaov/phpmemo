@@ -5,6 +5,11 @@ url: "https://vanyazaov.github.io"
 
 # Настройки для Jekyll
 theme: minima
+# Объявляем кастомные коллекции
+collections:
+  notes:
+    output: true
+    permalink: /notes/:path/
 plugins:
   - jekyll-feed
   - jekyll-seo-tag

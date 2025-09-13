@@ -9,23 +9,6 @@
 
 
 
-/* Notes grid */
-.notes-page {
-    padding: 2rem 0;
-}
-
-.page-title {
-    text-align: center;
-    margin-bottom: 3rem;
-    font-size: 2.5rem;
-}
-
-.notes-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 2rem;
-    min-height: 200px;
-}
 
 /* Note Cards - Flip animation */
 .note-card {

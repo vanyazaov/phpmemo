@@ -114,6 +114,9 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 /* About page */
+.about-page {
+    padding: 2rem 0;
+}
 .page-title {
     text-align: center;
     margin-bottom: 3rem;
@@ -173,4 +176,15 @@ body {
     .cta-section {
         padding: 1.5rem;
     }
+}
+
+/* Notes grid */
+.notes-page {
+    padding: 2rem 0;
+}
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    min-height: 200px;
 }
