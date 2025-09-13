@@ -16,8 +16,22 @@ permalink: /notes/
                         Расскажите всё, что знаете.
                     </div>
                     <div class="note-card-back">
-                        <p><code>echo</code> - конструкция языка, не возвращает значения.<br>
-                           <code>print</code> - языковая конструкция, всегда возвращает 1.</p>
+                        Пример:
+
+```php
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Привет, это HTML!</h1>
+    <?php
+        // А это PHP
+        echo "<p>Сгенерировано PHP в " . date('Y-m-d H:i:s') . "</p>";
+    ?>
+    <p>Снова HTML.</p>
+</body>
+</html>
+```
+
                     </div>
                 </div>
             </div>
