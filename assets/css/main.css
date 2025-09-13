@@ -294,9 +294,8 @@ body {
     margin-bottom: 2rem;
 }
 
-/* Область ответа (скрыта по умолчанию) */
+/* Область ответа */
 .note-answer {
-    display: none;
     margin-top: 2rem;
 }
 
