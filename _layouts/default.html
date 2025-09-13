@@ -2,7 +2,8 @@
 <html lang="ru">
 <head>
     {% include head.html %}
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <!-- Явное подключение CSS с версией -->
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.version }}">
 </head>
 <body>
     {% include header.html %}
@@ -12,7 +13,7 @@
     </main>
     
     {% include footer.html %}
-    
-    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+    <!-- Явное подключение JS с версией -->
+    <script src="{{ '/assets/js/main.js' | relative_url }}?v={{ site.version }}"></script>
 </body>
 </html>
