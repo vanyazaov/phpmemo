@@ -93,7 +93,13 @@ body {
     background: #0056b3;
     transform: translateY(-2px);
 }
-
+.btn-secondary {
+    background: #f5f5f5;
+    color: #333;
+}
+.btn-secondary:hover {
+    background: #545b62;
+}
 /* Features */
 .features {
     padding: 4rem 0;
@@ -280,7 +286,42 @@ body {
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 500;
-}    
+}
+/* Область вопроса */
+.note-question {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* Область ответа (скрыта по умолчанию) */
+.note-answer {
+    display: none;
+    margin-top: 2rem;
+}
+
+.short-answer {
+    max-height: 150px;
+    overflow: hidden;
+    position: relative;
+}
+
+.short-answer:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(transparent, white);
+}
+
+.answer-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+    
 /* Site Footer */
 .site-footer {
     background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
