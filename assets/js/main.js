@@ -5,7 +5,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Для каждой карточки вешаем обработчик события
     cards.forEach(card => {
-        card.addEventListener('click', function() {
+        card.addEventListener('click', function(event) {
+            if (event.target.closest('.btn-primary')) {
+                return; // Прерываем выполнение, если клик был по кнопке
+            }
             // При клике переключаем класс 'flipped'
             this.classList.toggle('flipped');
         });
