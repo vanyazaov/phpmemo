@@ -12,7 +12,7 @@ permalink: /notes/
             <div class="note-card">
                 <div class="note-card-inner">
                     <div class="note-card-front">
-                        Теги {{"`<?php ... ?>`" | markdownify }}<br>
+                        Теги  <code class="language-php">&lt;?php ... ?&gt;</code><br>
                         Расскажите всё, что знаете.
                     </div>
                     <div class="note-card-back">
@@ -38,7 +38,9 @@ permalink: /notes/
             <div class="note-card">
                 <div class="note-card-inner">
                     <div class="note-card-front">
-                        {{ "```php /* ... */ ```" | markdownify }}
+                        {{ "```php 
+                        /* ... */ 
+                        ```" | markdownify }}
                         <br>
                         Расскажите об использовании указанных символов в коде.
                     </div>
