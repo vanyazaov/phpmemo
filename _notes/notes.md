@@ -11,32 +11,68 @@ permalink: /notes/
         <div class="notes-grid">
             <div class="note-card">
                 <div class="note-card-inner">
-                    123
+                    <div class="note-card-front">
+                        <h2>Чем echo отличается от print?</h2>
+                    </div>
+                    <div class="note-card-back">
+                        <p><code>echo</code> - конструкция языка, не возвращает значения.<br>
+                           <code>print</code> - языковая конструкция, всегда возвращает 1.</p>
+                    </div>
                 </div>
             </div>
             <div class="note-card">
                 <div class="note-card-inner">
-                    123
+                    <div class="note-card-front">
+                        <h2>Чем echo отличается от print?</h2>
+                    </div>
+                    <div class="note-card-back">
+                        <p><code>echo</code> - конструкция языка, не возвращает значения.<br>
+                           <code>print</code> - языковая конструкция, всегда возвращает 1.</p>
+                    </div>
                 </div>
             </div>
             <div class="note-card">
                 <div class="note-card-inner">
-                    123
+                    <div class="note-card-front">
+                        <h2>Чем echo отличается от print?</h2>
+                    </div>
+                    <div class="note-card-back">
+                        <p><code>echo</code> - конструкция языка, не возвращает значения.<br>
+                           <code>print</code> - языковая конструкция, всегда возвращает 1.</p>
+                    </div>
                 </div>
             </div>
             <div class="note-card">
                 <div class="note-card-inner">
-                    123
+                    <div class="note-card-front">
+                        <h2>Чем echo отличается от print?</h2>
+                    </div>
+                    <div class="note-card-back">
+                        <p><code>echo</code> - конструкция языка, не возвращает значения.<br>
+                           <code>print</code> - языковая конструкция, всегда возвращает 1.</p>
+                    </div>
                 </div>
             </div>
             <div class="note-card">
                 <div class="note-card-inner">
-                    123
+                    <div class="note-card-front">
+                        <h2>Чем echo отличается от print?</h2>
+                    </div>
+                    <div class="note-card-back">
+                        <p><code>echo</code> - конструкция языка, не возвращает значения.<br>
+                           <code>print</code> - языковая конструкция, всегда возвращает 1.</p>
+                    </div>
                 </div>
             </div>
             <div class="note-card">
                 <div class="note-card-inner">
-                    123
+                    <div class="note-card-front">
+                        <h2>Чем echo отличается от print?</h2>
+                    </div>
+                    <div class="note-card-back">
+                        <p><code>echo</code> - конструкция языка, не возвращает значения.<br>
+                           <code>print</code> - языковая конструкция, всегда возвращает 1.</p>
+                    </div>
                 </div>
             </div>
         </div>
