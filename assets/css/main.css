@@ -260,16 +260,12 @@ body {
     background: white;
     color: #333;
 }
-/*.note-card-back {
+.note-card-back {
     background-color: #f1c40f;
     color: #333;
     transform: rotateY(180deg); 
-}*/
-.note-card-back {
-    background: white;
-    color: #333;
-    transform: rotateY(180deg); /* Изначально скрыта поворотом */
 }
+
 /* Цвета для разных типов карточек */
 /*.note-card-theory {
     background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
