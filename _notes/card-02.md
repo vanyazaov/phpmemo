@@ -1,12 +1,12 @@
 ---
 layout: note # Создадим отдельный layout для карточек
-title: "Блочный комментарий в PHP"
-card_id: 002 # Уникальный номер карточки
-date: 2025-09-14
+title: "Канонические теги PHP для обрамления кода"
+card_id: 001 # Уникальный номер карточки
+date: 2025-09-13
 card_type: theory # theory, technique, practice
 categories: ["PHP Basics"]
 difficulty: 1 # Уровень сложности (опционально)
-icon: check-circle # book, lightning-bolt, check-circle (соответствует типу)
+icon: book # book, lightning-bolt, check-circle (соответствует типу)
 question: |
   Символы `/* ... */` <br>Расскажите об их использовании (включая документацию) и поддержке в версиях.
 
