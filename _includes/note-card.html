@@ -10,26 +10,32 @@
                         {% when "technique" %}{% assign icon = "⚡" %}
                         {% when "practice" %}{% assign icon = "🔧" %}
                     {% endcase %}
-                    
                     {{ icon }}
-                 </div>
+                </div>
                 <div class="note-info">
                     <span class="note-id">#{{ note.card_id }}</span>
                     <span class="note-date">{{ note.date | date: "%d.%m.%Y" }}</span>
+                    {% if note.categories %}
                     <span class="note-category">{{ note.categories | first }}</span>
+                    {% endif %}
                 </div>
             </div>
 
             <!-- Область вопроса -->
-            <div class="note-question">
-                {{ note.question | markdownify }}
+            <div class="note-content">
+                <div class="note-question">
+                    {{ note.question | markdownify }}
+                </div>
             </div>
         </div>
+        
         <div class="note-card-back">
-            <!-- Область ответа (изначально скрыта) -->
-            <div class="note-answer">
-                <div class="short-answer">
-                    {{ note.short_answer | markdownify }}
+            <!-- Область ответа -->
+            <div class="note-content">
+                <div class="note-answer">
+                    <div class="short-answer">
+                        {{ note.short_answer | markdownify }}
+                    </div>
                 </div>
                 
                 <div class="answer-actions">
