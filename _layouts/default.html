@@ -3,7 +3,8 @@
 <head>
     {% include head.html %}
     <!-- Явное подключение CSS с версией -->
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | asset_hash | relative_url }}">
+    {% capture version %}{{ site.time | date: '%Y%m%d%H%M' }}{% endcapture %}
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ version }}">
 </head>
 <body>
     {% include header.html %}
@@ -14,6 +15,6 @@
     
     {% include footer.html %}
     <!-- Явное подключение JS с версией -->
-    <script src="{{ '/assets/js/main.js' | asset_hash | relative_url }}"></script>
+    <script src="{{ '/assets/js/main.js' | relative_url }}?v={{ version }}"></script>
 </body>
 </html>
