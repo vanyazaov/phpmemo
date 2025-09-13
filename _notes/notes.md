@@ -12,7 +12,7 @@ permalink: /notes/
             <div class="note-card">
                 <div class="note-card-inner">
                     <div class="note-card-front">
-                        Теги <code><?php ... ?></code><br>
+                        Теги {{`<?php ... ?>` | markdownify }}<br>
                         Расскажите всё, что знаете.
                     </div>
                     <div class="note-card-back">
@@ -25,7 +25,7 @@ permalink: /notes/
                 <div class="note-card-inner">
                     <div class="note-card-front">
                         Однострочный комментарий 
-                        ``//``
+                        {{`//` | markdownify }}
                         <br>
                         Расскажите о его использовании, включая нестандартные случаи.                        
                     </div>
@@ -38,9 +38,7 @@ permalink: /notes/
             <div class="note-card">
                 <div class="note-card-inner">
                     <div class="note-card-front">
-```php
-/* ... */
-```
+                        {{ ```php /* ... */ ``` | markdownify }}
                         <br>
                         Расскажите об использовании указанных символов в коде.
                     </div>
