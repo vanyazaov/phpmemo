@@ -21,8 +21,8 @@ permalink: /notes/
                     </div>
                 </div>
             </div>
-            <div class="note-card">
-                <div class="note-card-inner note-card-technique">
+            <div class="note-card note-card-technique">
+                <div class="note-card-inner">
                     <div class="note-card-front">
                         Однострочный комментарий 
                         {{"`//`" | markdownify }}
