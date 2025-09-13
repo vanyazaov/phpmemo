@@ -12,7 +12,8 @@ permalink: /notes/
             <div class="note-card">
                 <div class="note-card-inner">
                     <div class="note-card-front">
-                        <h2>Чем echo отличается от print?</h2>
+                        Теги `<?php ... ?>`<br>
+                        Расскажите всё, что знаете.
                     </div>
                     <div class="note-card-back">
                         <p><code>echo</code> - конструкция языка, не возвращает значения.<br>
@@ -23,7 +24,8 @@ permalink: /notes/
             <div class="note-card">
                 <div class="note-card-inner">
                     <div class="note-card-front">
-                        <h2>Чем echo отличается от print?</h2>
+                        Однострочный комментарий `//`<br>
+                        Расскажите о его использовании, включая нестандартные случаи.                        
                     </div>
                     <div class="note-card-back">
                         <p><code>echo</code> - конструкция языка, не возвращает значения.<br>
@@ -34,7 +36,8 @@ permalink: /notes/
             <div class="note-card">
                 <div class="note-card-inner">
                     <div class="note-card-front">
-                        <h2>Чем echo отличается от print?</h2>
+                        `/* ... */`<br>
+                        Расскажите об использовании указанных символов в коде.
                     </div>
                     <div class="note-card-back">
                         <p><code>echo</code> - конструкция языка, не возвращает значения.<br>
@@ -45,7 +48,8 @@ permalink: /notes/
             <div class="note-card">
                 <div class="note-card-inner">
                     <div class="note-card-front">
-                        <h2>Чем echo отличается от print?</h2>
+                        Основные атрибуты (теги) DocBlock.
+                        Перечислите и кратко опишите основные.
                     </div>
                     <div class="note-card-back">
                         <p><code>echo</code> - конструкция языка, не возвращает значения.<br>

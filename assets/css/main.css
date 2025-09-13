@@ -188,6 +188,9 @@ body {
     gap: 20px;
     max-width: 1200px;
 }
+.note-card.flipped .note-card-inner {
+    transform: rotateY(180deg);
+}
 .note-card {
     perspective: 1000px; 
     cursor: pointer;
