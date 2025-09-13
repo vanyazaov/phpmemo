@@ -9,18 +9,23 @@ permalink: /notes/
         <h1 class="page-title">Все карточки</h1>
         
         <div class="notes-grid">
-            <div class="note-card note-card-theory">
-                <div class="note-card-inner">
-                    <div class="note-card-front">
-                        Теги  <code class="language-php">&lt;?php ... ?&gt;</code><br>
-                        Расскажите всё, что знаете.
-                    </div>
-                    <div class="note-card-back">
-                        
+            {% for note in site.notes %}
+            {% if note.card_id %} <!-- Пропускаем служебные файлы -->
+                <div class="note-card note-card-theory">
+                    <div class="note-card-inner">
+                        <div class="note-card-front">
+                            Теги  <code class="language-php">&lt;?php ... ?&gt;</code><br>
+                            Расскажите всё, что знаете.
+                        </div>
+                        <div class="note-card-back">
+                            
 
+                        </div>
                     </div>
                 </div>
-            </div>
+            {% endif %}
+            {% endfor %}
+            
             <div class="note-card note-card-technique">
                 <div class="note-card-inner">
                     <div class="note-card-front">
@@ -91,10 +96,10 @@ permalink: /notes/
 
                         <!-- Кнопка для показа ответа -->
                         <button class="btn btn-primary show-answer">Показать ответ</button>
-                        </div>                  
-                </div>
-                <div class="note-card-back">
+                    </div>
+                    <div class="note-card-back">
                         
+                    </div>                  
                 </div>
             </div>
         </div>
