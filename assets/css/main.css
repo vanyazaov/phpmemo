@@ -188,11 +188,13 @@ body {
 .notes-page {
     padding: 2rem 0;
 }
+
 .notes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    max-width: 1200px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+    max-width: 1300px;
+    margin: 0 auto;
 }
 .note-card.flipped .note-card-inner {
     transform: rotateY(180deg);
