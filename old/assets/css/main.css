@@ -11,12 +11,7 @@
 
 
 /* Note Cards - Flip animation */
-.note-card {
-    position: relative;
-    perspective: 1000px;
-    min-height: 250px;
-    cursor: pointer;
-}
+
 
 .note-card-front,
 .note-card-back {

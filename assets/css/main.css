@@ -184,11 +184,24 @@ body {
 }
 .notes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 2rem;
-    min-height: 200px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
 }
-
+.note-card {
+    perspective: 1000px; 
+    cursor: pointer;
+    height: 200px; 
+}
+.note-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s; /* Время анимации переворота */
+    transform-style: preserve-3d; /* Важно! Сохраняем 3D-пространство */
+}
 /* Site Footer */
 .site-footer {
     background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
