@@ -12,7 +12,7 @@ permalink: /notes/
             <div class="note-card">
                 <div class="note-card-inner">
                     <div class="note-card-front">
-                        Теги ``<?php ... ?>``<br>
+                        Теги `<?php ... ?>`<br>
                         Расскажите всё, что знаете.
                     </div>
                     <div class="note-card-back">
@@ -36,7 +36,7 @@ permalink: /notes/
             <div class="note-card">
                 <div class="note-card-inner">
                     <div class="note-card-front">
-                        ``/* ... */``<br>
+                        ```/* ... */```<br>
                         Расскажите об использовании указанных символов в коде.
                     </div>
                     <div class="note-card-back">
