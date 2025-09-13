@@ -6,11 +6,6 @@ url: "https://vanyazaov.github.io"
 # Настройки для Jekyll
 theme: minima
 markdown: kramdown
-kramdown:
-  syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    disable: false
-  input: GFM # GitHub Flavored Markdown
 
 # Объявляем кастомные коллекции
 collections:
