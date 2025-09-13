@@ -1,3 +1,10 @@
+title: "PHPMemo"
+description: "Шпаргалки и заметки по PHP и веб-разработке"
+baseurl: "/phpmemo" 
+url: "https://vanyazaov.github.io"
+
+# Настройки для Jekyll
+theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag

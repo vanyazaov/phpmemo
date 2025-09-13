@@ -1,16 +1,6 @@
-title: "PHPMemo"
-description: "Шпаргалки и заметки по PHP и веб-разработке"
-baseurl: "/phpmemo" # Если сайт в подпапке, например "/phpmemo"
-url: "https://vanyazaov.github.io"     # Ваш домен, например "https://username.github.io"
-
-# Настройки для Jekyll
-theme: minima # Можно начать с минимальной темы, а потом кастомизировать
 # Объявляем кастомные коллекции
 collections:
   notes:
     output: true   # Важно: это разрешает Jekyll создавать отдельные страницы для каждого файла в коллекции
     permalink: /notes/:path/   # Вот это ключевая строка! # Опционально: настраивает URL для страниц записей
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
   
