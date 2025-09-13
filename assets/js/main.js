@@ -1,15 +1,27 @@
 document.addEventListener('DOMContentLoaded', function() {
     const cards = document.querySelectorAll('.note-card');
+    const progressStats = document.getElementById('progressStats');
+    const progressText = document.getElementById('progressText');
+    const progressFill = document.getElementById('progressFill');
+    const storageKey = 'noteCardsState';
     
-    // Восстанавливаем состояние карточек
-    const savedState = JSON.parse(localStorage.getItem('noteCardsState') || '{}');
-    
+    let savedState = {};
+    try {
+        // Восстанавливаем состояние карточек
+        savedState = JSON.parse(localStorage.getItem(storageKey) || '{}');
+    } catch (e) {
+        console.warn('Не удалось прочитать состояние карточек:', e);
+    }
+
+    // Восстанавливаем состояние и считаем прогресс
+    let studiedCount = 0;
     cards.forEach(card => {
         const cardId = card.dataset.noteId;
         
         // Восстанавливаем сохраненное состояние
         if (savedState[cardId]) {
             card.classList.add('flipped');
+            studiedCount++;
         }
         
         card.addEventListener('click', function(event) {
@@ -18,40 +30,73 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
+            const wasFlipped = this.classList.contains('flipped');
             // Переворачиваем карточку
             this.classList.toggle('flipped');
-            
             // Сохраняем состояние
             saveCardState(this);
+            updateProgress(!wasFlipped);
         });
     });
+    
+    // Инициализируем прогресс
+    updateProgressDisplay();
     
     function saveCardState(card) {
         const cardId = card.dataset.noteId;
         const isFlipped = card.classList.contains('flipped');
         
-        // Получаем текущее состояние
-        const currentState = JSON.parse(localStorage.getItem('noteCardsState') || '{}');
-        
-        // Обновляем состояние для этой карточки
-        if (isFlipped) {
-            currentState[cardId] = true;
-        } else {
-            delete currentState[cardId];
+        try {
+            // Получаем текущее состояние
+            const currentState = JSON.parse(localStorage.getItem(storageKey) || '{}');
+            
+            // Обновляем состояние для этой карточки
+            if (isFlipped) {
+                currentState[cardId] = true;
+            } else {
+                delete currentState[cardId];
+            }
+            
+            // Сохраняем обратно
+            localStorage.setItem(storageKey, JSON.stringify(currentState));
+        } catch (e) {
+            console.warn('Не удалось сохранить состояние:', e);
         }
-        
-        // Сохраняем обратно
-        localStorage.setItem('noteCardsState', JSON.stringify(currentState));
     }
     
-    // Кнопка для сброса состояния
+    function updateProgress(isNewlyStudied) {
+        studiedCount += isNewlyStudied ? 1 : -1;
+        updateProgressDisplay();
+    }
+    
+    function updateProgressDisplay() {
+        const total = cards.length;
+        const percentage = total > 0 ? (studiedCount / total) * 100 : 0;
+        
+        progressText.textContent = `${studiedCount}/${total} изучено (${Math.round(percentage)}%)`;
+        progressFill.style.width = `${percentage}%`;
+        
+        // Добавляем классы для разных уровней прогресса
+        progressFill.className = 'progress-fill';
+        if (percentage === 100) {
+            progressFill.classList.add('complete');
+        } else if (percentage >= 50) {
+            progressFill.classList.add('halfway');
+        }
+    }
+    
+    // Кнопка сброса прогресса
     const resetButton = document.createElement('button');
-    resetButton.textContent = 'Сбросить все карточки';
-    resetButton.style.cssText = 'position: fixed; bottom: 20px; right: 20px; z-index: 1000; padding: 10px; background: #ff4757; color: white; border: none; border-radius: 5px; cursor: pointer;';
+    resetButton.textContent = '🔄 Сбросить прогресс';
+    resetButton.className = 'reset-progress-btn';
     resetButton.addEventListener('click', function() {
-        localStorage.removeItem('noteCardsState');
-        cards.forEach(card => card.classList.remove('flipped'));
+        if (confirm('Сбросить весь прогресс?')) {
+            localStorage.removeItem(storageKey);
+            cards.forEach(card => card.classList.remove('flipped'));
+            studiedCount = 0;
+            updateProgressDisplay();
+        }
     });
     
-    document.body.appendChild(resetButton);
+    progressStats.appendChild(resetButton);
 });
