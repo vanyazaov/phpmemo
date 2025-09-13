@@ -1,23 +1,54 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% include head.html %}
+    <link rel="stylesheet" href="{{ '/assets/css/notes.css' | relative_url }}">
+</head>
+<body>
+    {% include header.html %}
+    
+    <main class="main-content">
+        <div class="note-container">
+            <article class="note-card note-card-{{ page.card_type }}">
+                <!-- Верхняя панель с мета-информацией -->
+                <div class="note-meta">
+                    <div class="note-icon note-icon-{{ page.card_type }}">
+                        {% if page.card_type == "theory" %}📚{% endif %}
+                        {% if page.card_type == "technique" %}⚡{% endif %}
+                        {% if page.card_type == "practice" %}🔧{% endif %}
+                    </div>
+                    <div class="note-info">
+                        <span class="note-id">#{{ page.card_id }}</span>
+                        <span class="note-date">{{ page.date | date: "%d.%m.%Y" }}</span>
+                        <span class="note-category">{{ page.categories | first }}</span>
+                    </div>
+                </div>
 
-<article class="note-page">
-    <div class="container">
-        <header class="note-header">
-            <h1 class="note-title">{{ page.title }}</h1>
-            {{ content | split: '## Ответ' | first | remove: '## Вопрос' | markdownify }}
-        </header>
+                <!-- Область вопроса -->
+                <div class="note-question">
+                    {{ page.question | markdownify }}
+                </div>
 
-        <div class="note-content">
-            <h2>Ответ:</h2>
-            {{ content | split: '## Ответ' | last | markdownify }}
+                <!-- Область ответа (изначально скрыта) -->
+                <div class="note-answer">
+                    <div class="short-answer">
+                        {{ page.short_answer | markdownify }}
+                    </div>
+                    
+                    <div class="answer-actions">
+                        <button class="btn btn-secondary hide-answer">Скрыть ответ</button>
+                        <button class="btn btn-primary show-full">Подробнее</button>
+                    </div>
+                </div>
+
+                <!-- Кнопка для показа ответа -->
+                <button class="btn btn-primary show-answer">Показать ответ</button>
+            </article>
         </div>
-
-        <div class="note-navigation">
-            <a href="{{ '/notes/' | relative_url }}" class="btn btn-secondary">
-                ← Назад ко всем карточкам
-            </a>
-        </div>
-    </div>
-</article>
+    </main>
+    
+    {% include footer.html %}
+    
+    <script src="{{ '/assets/js/notes.js' | relative_url }}"></script>
+</body>
+</html>
