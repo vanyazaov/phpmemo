@@ -38,9 +38,9 @@ permalink: /notes/
             <div class="note-card">
                 <div class="note-card-inner">
                     <div class="note-card-front">
-                        ```php
-                        /* ... */
-                        ```
+```php
+/* ... */
+```
                         <br>
                         Расскажите об использовании указанных символов в коде.
                     </div>
