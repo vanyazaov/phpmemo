@@ -5,7 +5,7 @@ url: "https://vanyazaov.github.io"
 
 # Настройки для Jekyll
 theme: minima
-markdown: GFM
+markdown: kramdown
 kramdown:
   syntax_highlighter: rouge
   syntax_highlighter_opts:
