@@ -37,9 +37,11 @@ permalink: /notes/
             <div class="note-card note-card-practice">
                 <div class="note-card-inner">
                     <div class="note-card-front">
-                        {{ "```php 
+                        {% highlight php %}
+                        ```php 
                         /* ... */ 
-                        ```" | markdownify }}
+                        ```
+                        {% endhighlight %}
                         <br>
                         Расскажите об использовании указанных символов в коде.
                     </div>
