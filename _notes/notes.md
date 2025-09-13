@@ -17,8 +17,8 @@ permalink: /notes/
                     </div>
                     <div class="note-card-back">
                         Пример:
-
-```php
+{{
+"```php
 <!DOCTYPE html>
 <html>
 <body>
@@ -30,7 +30,7 @@ permalink: /notes/
     <p>Снова HTML.</p>
 </body>
 </html>
-```
+```" | markdownify}}
 
                     </div>
                 </div>
