@@ -1,9 +1,0 @@
-{% assign content = include.content %}
-{% assign max_length = include.max_length | default: 150 %}
-
-{% if content contains "<!--more-->" %}
-    {% assign parts = content | split: "<!--more-->" %}
-    {{ parts.first | markdownify | strip_html | truncate: max_length }}
-{% else %}
-    {{ content | markdownify | strip_html | truncate: max_length }}
-{% endif %}

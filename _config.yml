@@ -1,7 +1,7 @@
 title: "PHPMemo"
-description: "Шпаргалки и заметки по PHP и веб-разработке"
+description: "Интерактивная коллекция шпаргалок по PHP в виде переворачивающихся карточек для эффективного изучения и повторения материала."
 baseurl: "/phpmemo" 
-url: "https://vanyazaov.github.io"
+url: "https://vanyazaov.github.io/phpmemo"
 
 # Настройки для Jekyll
 theme: minima
