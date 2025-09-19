@@ -176,7 +176,6 @@
 .note-card.completed .note-card-front {
     background: linear-gradient(135deg, #f8f9fa, #e9ecef);
     border-left: 8px solid #6c757d;
-    opacity: 0.8;
     filter: grayscale(0.3);
 }
 
@@ -185,19 +184,6 @@
     color: white;
 }
 
-.completion-badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #28a745;
-    color: white;
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    z-index: 10;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
 
 
 
@@ -206,7 +192,7 @@
     transition: all 0.3s ease;
 }
 
-.note-card.completed {
+.note-card.completed .short-answer {
     opacity: 0.7;
 }
 
@@ -217,7 +203,6 @@
     bottom: 10px;
     right: 10px;
     font-size: 1.5rem;
-    opacity: 0.7;
 }
 /* Стили для AI-предупреждения */
 .ai-warning {
