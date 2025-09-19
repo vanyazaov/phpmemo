@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const cardId = card.dataset.noteId;
         const markCompletedBtn = card.querySelector('.mark-completed');
         const markUncompletedBtn = card.querySelector('.mark-uncompleted');
-        const completionBadge = card.querySelector('.completion-badge');
         const hideAnswerBtn = card.querySelector('.hide-answer');
         
         // Восстанавливаем сохраненное состояние переворота
@@ -38,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
             card.classList.add('completed');
             markCompletedBtn.style.display = 'none';
             markUncompletedBtn.style.display = 'inline-block';
-            completionBadge.style.display = 'block';
         }
         
         // Обработчик клика по карточке (только переворот)
@@ -57,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
             card.classList.add('completed');
             markCompletedBtn.style.display = 'none';
             markUncompletedBtn.style.display = 'inline-block';
-            completionBadge.style.display = 'block';
             card.classList.remove('flipped');
             
             // Сохраняем и обновляем прогресс
@@ -73,7 +70,6 @@ document.addEventListener('DOMContentLoaded', function() {
             card.classList.remove('completed');
             markCompletedBtn.style.display = 'inline-block';
             markUncompletedBtn.style.display = 'none';
-            completionBadge.style.display = 'none';
             card.classList.remove('flipped');
             
             // Удаляем из прогресса
@@ -148,11 +144,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 card.classList.remove('completed');
                 const markCompletedBtn = card.querySelector('.mark-completed');
                 const markUncompletedBtn = card.querySelector('.mark-uncompleted');
-                const completionBadge = card.querySelector('.completion-badge');
                 
                 markCompletedBtn.style.display = 'inline-block';
                 markUncompletedBtn.style.display = 'none';
-                completionBadge.style.display = 'none';
             });
             studiedCount = 0;
             completedCards = {};
