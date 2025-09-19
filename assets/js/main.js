@@ -84,11 +84,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Кнопка "Скрыть ответ"
-        hideAnswerBtn.addEventListener('click', function(event) {
+        /*hideAnswerBtn.addEventListener('click', function(event) {
             event.stopPropagation();
             card.classList.remove('flipped');
             saveCardState(card);
-        });
+        });*/
     });
     
     // Инициализируем прогресс

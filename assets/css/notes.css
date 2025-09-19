@@ -207,7 +207,7 @@
 }
 
 .note-card.completed {
-    transform: scale(0.98);
+    opacity: 0.7;
 }
 
 /* Иконка для изученных карточек */
