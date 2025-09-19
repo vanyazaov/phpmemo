@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const filterKey = 'notesFilters';
     const cards = document.querySelectorAll('.note-card');
     const progressStats = document.getElementById('progressStats');
     const progressText = document.getElementById('progressText');
@@ -8,6 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     let savedState = {};
     let completedCards = {};
+    let activeFilters = {
+        status: 'all',
+        type: 'all_types'
+    };
     
     try {
         // Восстанавливаем состояние переворота
@@ -47,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             this.classList.toggle('flipped');
             saveCardState(this);
+            applyFilters();
         });
         
         // Кнопка "Бито"
@@ -65,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
             studiedCount++;
             saveCompletedState();
             updateProgressDisplay();
+            applyFilters();
         });
         
         // Кнопка "В колоду"
@@ -83,6 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
             studiedCount--;
             saveCompletedState();
             updateProgressDisplay();
+            applyFilters();
         });
         
         // Кнопка "Скрыть ответ"
@@ -139,6 +147,105 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+    // Функция для применения фильтров
+    function applyFilters() {
+        cards.forEach(card => {
+            const cardId = card.dataset.noteId;
+            const cardType = card.classList.contains('note-card-theory') ? 'theory' : 
+                            card.classList.contains('note-card-technique') ? 'technique' : 
+                            card.classList.contains('note-card-practice') ? 'practice' : '';
+            
+            const isCompleted = card.classList.contains('completed');
+            const isFlipped = card.classList.contains('flipped');
+            
+            let statusMatch = false;
+            let typeMatch = false;
+            
+            // Проверяем фильтр по статусу
+            switch (activeFilters.status) {
+                case 'all':
+                    statusMatch = true;
+                    break;
+                case 'new':
+                    statusMatch = !isCompleted && !isFlipped;
+                    break;
+                case 'in_progress':
+                    statusMatch = !isCompleted && isFlipped;
+                    break;
+                case 'completed':
+                    statusMatch = isCompleted;
+                    break;
+            }
+            
+            // Проверяем фильтр по типу
+            switch (activeFilters.type) {
+                case 'all_types':
+                    typeMatch = true;
+                    break;
+                default:
+                    typeMatch = activeFilters.type === cardType;
+            }
+            
+            // Показываем/скрываем карточку
+            if (statusMatch && typeMatch) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    // Функция для сохранения фильтров
+    function saveFilters() {
+        try {
+            localStorage.setItem(filterKey, JSON.stringify(activeFilters));
+        } catch (e) {
+            console.warn('Не удалось сохранить фильтры:', e);
+        }
+    }
+
+    // Функция для восстановления фильтров
+    function restoreFilters() {
+        try {
+            const savedFilters = JSON.parse(localStorage.getItem(filterKey));
+            if (savedFilters) {
+                activeFilters = savedFilters;
+                
+                // Активируем соответствующие кнопки
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                document.querySelector(`[data-filter="${activeFilters.status}"]`)?.classList.add('active');
+                document.querySelector(`[data-filter="${activeFilters.type}"]`)?.classList.add('active');
+            }
+        } catch (e) {
+            console.warn('Не удалось восстановить фильтры:', e);
+        }
+    }
+
+    // Обработчики для кнопок фильтров
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const filter = this.dataset.filter;
+            
+            // Определяем тип фильтра
+            if (['all', 'new', 'in_progress', 'completed'].includes(filter)) {
+                activeFilters.status = filter;
+            } else if (['all_types', 'theory', 'technique', 'practice'].includes(filter)) {
+                activeFilters.type = filter;
+            }
+            
+            // Обновляем активные кнопки
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Сохраняем и применяем фильтры
+            saveFilters();
+            applyFilters();
+        });
+    });
+    
     // Кнопка сброса прогресса
     const resetButton = document.createElement('button');
     resetButton.textContent = '🔄 Сбросить прогресс';
@@ -157,8 +264,12 @@ document.addEventListener('DOMContentLoaded', function() {
             studiedCount = 0;
             completedCards = {};
             updateProgressDisplay();
+            applyFilters();
         }
     });
     
     progressStats.appendChild(resetButton);
+    // Восстанавливаем фильтры при загрузке
+    restoreFilters();
+    applyFilters();
 });
