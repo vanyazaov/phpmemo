@@ -32,8 +32,8 @@
 .note-card {
     perspective: 1000px;
     cursor: pointer;
-    height: 280px; /* Увеличил высоту */
-    min-height: 280px;
+    height: 300px; /* Увеличил высоту */
+    min-height: 300px;
 }
 .note-card-inner {
     position: relative;
@@ -131,7 +131,7 @@
 }
 /* Область вопроса */
 .note-question {
-    font-size: 1.1rem;
+    font-size: 1.0rem;
     line-height: 1.5;
     font-weight: 500;
     overflow: hidden;
@@ -151,7 +151,7 @@
     flex: 1;
     overflow: hidden;
     position: relative;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     line-height: 1.5;
 }
 .short-answer:after {
@@ -160,7 +160,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 40px;
+    height: 20px;
     background: linear-gradient(transparent, #f1c40f 70%);
     pointer-events: none;
 }
@@ -171,6 +171,74 @@
     padding-top: 0.8rem;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     flex-shrink: 0;
+}
+/* Стили для AI-предупреждения */
+.ai-warning {
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+    border: 2px solid #ffc107;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.2);
+}
+
+.ai-warning-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.ai-warning-content {
+    flex: 1;
+}
+
+.ai-warning strong {
+    color: #856404;
+}
+
+.ai-warning-small {
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #856404;
+    text-align: center;
+    display: inline-block;
+}
+
+/* Анимация для привлечения внимания */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+.ai-warning {
+    animation: pulse 2s ease-in-out;
+}
+
+/* Для темной темы */
+@media (prefers-color-scheme: dark) {
+    .ai-warning {
+        background: linear-gradient(135deg, #332701, #4d3f04);
+        border-color: #ffd54f;
+        color: #ffecb5;
+    }
+    
+    .ai-warning strong {
+        color: #ffd54f;
+    }
+    
+    .ai-warning-small {
+        background: #332701;
+        border-color: #ffd54f;
+        color: #ffecb5;
+    }
 }
 /* Адаптивность */
 @media (max-width: 768px) {
