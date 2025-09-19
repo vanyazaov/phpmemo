@@ -184,9 +184,6 @@
     color: white;
 }
 
-
-
-
 /* Анимации */
 .note-card {
     transition: all 0.3s ease;
@@ -241,6 +238,71 @@
     color: #856404;
     text-align: center;
     display: inline-block;
+}
+
+/* Стили для фильтров */
+.notes-filters {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-group:last-child {
+    margin-bottom: 0;
+}
+
+.filter-label {
+    font-weight: 600;
+    color: #333;
+    min-width: 80px;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    border: 2px solid #e9ecef;
+    background: white;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.filter-btn:hover {
+    border-color: #3498db;
+    background: #f8f9fa;
+}
+
+.filter-btn.active {
+    background: #3498db;
+    color: white;
+    border-color: #3498db;
+}
+
+/* Адаптивность фильтров */
+@media (max-width: 768px) {
+    .filter-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-label {
+        margin-bottom: 0.5rem;
+    }
+    
+    .filter-btn {
+        text-align: center;
+    }
 }
 
 /* Анимация для привлечения внимания */
