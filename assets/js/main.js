@@ -204,40 +204,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Функция для восстановления фильтров
-    function restoreFilters() {
-        try {
-            const savedFilters = JSON.parse(localStorage.getItem(filterKey));
-            if (savedFilters) {
-                activeFilters = savedFilters;
-                
-                // Активируем соответствующие кнопки
-                document.querySelectorAll('.filter-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                
-                document.querySelector(`[data-filter="${activeFilters.status}"]`)?.classList.add('active');
-                document.querySelector(`[data-filter="${activeFilters.type}"]`)?.classList.add('active');
-            }
-        } catch (e) {
-            console.warn('Не удалось восстановить фильтры:', e);
-        }
-    }
-
     // Обработчики для кнопок фильтров
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             const filter = this.dataset.filter;
+            const filterGroup = this.closest('.filter-group').dataset.filterGroup;
             
-            // Определяем тип фильтра
-            if (['all', 'new', 'in_progress', 'completed'].includes(filter)) {
-                activeFilters.status = filter;
-            } else if (['all_types', 'theory', 'technique', 'practice'].includes(filter)) {
-                activeFilters.type = filter;
-            }
+            // Обновляем активный фильтр
+            activeFilters[filterGroup] = filter;
             
-            // Обновляем активные кнопки
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            // Сбрасываем активность только в текущей группе
+            const groupButtons = this.closest('.filter-group').querySelectorAll('.filter-btn');
+            groupButtons.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
             
             // Сохраняем и применяем фильтры
@@ -245,6 +223,28 @@ document.addEventListener('DOMContentLoaded', function() {
             applyFilters();
         });
     });
+
+    // Функция для восстановления фильтров
+    function restoreFilters() {
+        try {
+            const savedFilters = JSON.parse(localStorage.getItem(filterKey));
+            if (savedFilters) {
+                activeFilters = savedFilters;
+                
+                // Активируем соответствующие кнопки в каждой группе
+                Object.entries(activeFilters).forEach(([group, filter]) => {
+                    const button = document.querySelector(`[data-filter-group="${group}"] [data-filter="${filter}"]`);
+                    if (button) {
+                        const groupButtons = button.closest('.filter-group').querySelectorAll('.filter-btn');
+                        groupButtons.forEach(b => b.classList.remove('active'));
+                        button.classList.add('active');
+                    }
+                });
+            }
+        } catch (e) {
+            console.warn('Не удалось восстановить фильтры:', e);
+        }
+    }
     
     // Кнопка сброса прогресса
     const resetButton = document.createElement('button');
