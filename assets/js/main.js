@@ -4,38 +4,90 @@ document.addEventListener('DOMContentLoaded', function() {
     const progressText = document.getElementById('progressText');
     const progressFill = document.getElementById('progressFill');
     const storageKey = 'noteCardsState';
+    const completedKey = 'noteCardsCompleted';
     
     let savedState = {};
+    let completedCards = {};
+    
     try {
-        // Восстанавливаем состояние карточек
+        // Восстанавливаем состояние переворота
         savedState = JSON.parse(localStorage.getItem(storageKey) || '{}');
+        // Восстанавливаем состояние изученности
+        completedCards = JSON.parse(localStorage.getItem(completedKey) || '{}');
     } catch (e) {
         console.warn('Не удалось прочитать состояние карточек:', e);
     }
 
     // Восстанавливаем состояние и считаем прогресс
-    let studiedCount = 0;
+    let studiedCount = Object.keys(completedCards).length;
+    
     cards.forEach(card => {
         const cardId = card.dataset.noteId;
+        const markCompletedBtn = card.querySelector('.mark-completed');
+        const markUncompletedBtn = card.querySelector('.mark-uncompleted');
+        const completionBadge = card.querySelector('.completion-badge');
+        const hideAnswerBtn = card.querySelector('.hide-answer');
         
-        // Восстанавливаем сохраненное состояние
+        // Восстанавливаем сохраненное состояние переворота
         if (savedState[cardId]) {
             card.classList.add('flipped');
-            studiedCount++;
         }
         
+        // Восстанавливаем состояние изученности
+        if (completedCards[cardId]) {
+            card.classList.add('completed');
+            markCompletedBtn.style.display = 'none';
+            markUncompletedBtn.style.display = 'inline-block';
+            completionBadge.style.display = 'block';
+        }
+        
+        // Обработчик клика по карточке (только переворот)
         card.addEventListener('click', function(event) {
-            // Проверяем, был ли клик по кнопке
-            if (event.target.closest('.btn-primary')) {
+            if (event.target.closest('.btn') || event.target.closest('.answer-actions')) {
                 return;
             }
             
-            const wasFlipped = this.classList.contains('flipped');
-            // Переворачиваем карточку
             this.classList.toggle('flipped');
-            // Сохраняем состояние
             saveCardState(this);
-            updateProgress(!wasFlipped);
+        });
+        
+        // Кнопка "Бито"
+        markCompletedBtn.addEventListener('click', function(event) {
+            event.stopPropagation();
+            card.classList.add('completed');
+            markCompletedBtn.style.display = 'none';
+            markUncompletedBtn.style.display = 'inline-block';
+            completionBadge.style.display = 'block';
+            card.classList.remove('flipped');
+            
+            // Сохраняем и обновляем прогресс
+            completedCards[cardId] = true;
+            studiedCount++;
+            saveCompletedState();
+            updateProgressDisplay();
+        });
+        
+        // Кнопка "В колоду"
+        markUncompletedBtn.addEventListener('click', function(event) {
+            event.stopPropagation();
+            card.classList.remove('completed');
+            markCompletedBtn.style.display = 'inline-block';
+            markUncompletedBtn.style.display = 'none';
+            completionBadge.style.display = 'none';
+            card.classList.remove('flipped');
+            
+            // Удаляем из прогресса
+            delete completedCards[cardId];
+            studiedCount--;
+            saveCompletedState();
+            updateProgressDisplay();
+        });
+        
+        // Кнопка "Скрыть ответ"
+        hideAnswerBtn.addEventListener('click', function(event) {
+            event.stopPropagation();
+            card.classList.remove('flipped');
+            saveCardState(card);
         });
     });
     
@@ -47,26 +99,26 @@ document.addEventListener('DOMContentLoaded', function() {
         const isFlipped = card.classList.contains('flipped');
         
         try {
-            // Получаем текущее состояние
             const currentState = JSON.parse(localStorage.getItem(storageKey) || '{}');
             
-            // Обновляем состояние для этой карточки
             if (isFlipped) {
                 currentState[cardId] = true;
             } else {
                 delete currentState[cardId];
             }
             
-            // Сохраняем обратно
             localStorage.setItem(storageKey, JSON.stringify(currentState));
         } catch (e) {
-            console.warn('Не удалось сохранить состояние:', e);
+            console.warn('Не удалось сохранить состояние переворота:', e);
         }
     }
     
-    function updateProgress(isNewlyStudied) {
-        studiedCount += isNewlyStudied ? 1 : -1;
-        updateProgressDisplay();
+    function saveCompletedState() {
+        try {
+            localStorage.setItem(completedKey, JSON.stringify(completedCards));
+        } catch (e) {
+            console.warn('Не удалось сохранить состояние изученности:', e);
+        }
     }
     
     function updateProgressDisplay() {
@@ -91,9 +143,19 @@ document.addEventListener('DOMContentLoaded', function() {
     resetButton.className = 'reset-progress-btn';
     resetButton.addEventListener('click', function() {
         if (confirm('Сбросить весь прогресс?')) {
-            localStorage.removeItem(storageKey);
-            cards.forEach(card => card.classList.remove('flipped'));
+            localStorage.removeItem(completedKey);
+            cards.forEach(card => {
+                card.classList.remove('completed');
+                const markCompletedBtn = card.querySelector('.mark-completed');
+                const markUncompletedBtn = card.querySelector('.mark-uncompleted');
+                const completionBadge = card.querySelector('.completion-badge');
+                
+                markCompletedBtn.style.display = 'inline-block';
+                markUncompletedBtn.style.display = 'none';
+                completionBadge.style.display = 'none';
+            });
             studiedCount = 0;
+            completedCards = {};
             updateProgressDisplay();
         }
     });
