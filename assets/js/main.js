@@ -57,6 +57,9 @@ document.addEventListener('DOMContentLoaded', function() {
             markUncompletedBtn.style.display = 'inline-block';
             card.classList.remove('flipped');
             
+            // Сохраняем состояние переворота (что карточка не перевернута)
+            saveCardState(card);
+            
             // Сохраняем и обновляем прогресс
             completedCards[cardId] = true;
             studiedCount++;
@@ -71,6 +74,9 @@ document.addEventListener('DOMContentLoaded', function() {
             markCompletedBtn.style.display = 'inline-block';
             markUncompletedBtn.style.display = 'none';
             card.classList.remove('flipped');
+            
+            // Сохраняем состояние переворота (что карточка не перевернута)
+            saveCardState(card);
             
             // Удаляем из прогресса
             delete completedCards[cardId];
