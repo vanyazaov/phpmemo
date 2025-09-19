@@ -27,6 +27,11 @@
                     {{ note.question | markdownify }}
                 </div>
             </div>
+            
+            <!-- Индикатор изученности -->
+            <div class="completion-badge" style="display: none;">
+                ✅ Изучено
+            </div>
         </div>
         
         <div class="note-card-back">
@@ -40,6 +45,8 @@
                 
                 <div class="answer-actions">
                     <button class="btn btn-secondary hide-answer">Скрыть ответ</button>
+                    <button class="btn btn-success mark-completed">Бито</button>
+                    <button class="btn btn-warning mark-uncompleted" style="display: none;">В колоду</button>
                     <a href="{{ note.url | relative_url }}" class="btn btn-primary">Подробнее</a>
                 </div>
             </div>
